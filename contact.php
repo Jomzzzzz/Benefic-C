@@ -22,7 +22,7 @@
 
 <!-- Hero Section -->
 <section 
-  class="relative py-32 text-center bg-[url('assets/images/contact.jpg')] bg-center bg-cover bg-no-repeat"
+  class="relative py-40 text-center bg-[url('assets/images/contact-bg.jpg')] bg-center bg-cover bg-no-repeat"
   data-aos="fade-down"
 >
   <!-- Overlay -->
@@ -114,16 +114,7 @@
   </div>
 </section>
 
-<!-- Call to Action -->
-<section class="py-16 bg-[#F5F5F5] text-center" data-aos="fade-up">
-  <div class="max-w-xl mx-auto px-4">
-    <h3 class="text-2xl md:text-3xl font-semibold mb-4">Ready to Book?</h3>
-    <p class="mb-4">📞 0999-996-6852 &nbsp;|&nbsp; 0915-535-9844</p>
-    <a href="book.php" class="inline-block text-white bg-[black] hover:bg-[black] hover:text-white px-4 py-2 rounded-full font-semibold transition-transform hover:scale-125">
-      <?= $text['book_now'] ?>
-    </a>
-  </div>
-</section>
+<?php include('includes/cta.php'); ?>
 
 <!-- Alpine.js -->
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
