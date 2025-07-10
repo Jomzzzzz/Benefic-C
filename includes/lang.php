@@ -1,11 +1,11 @@
 <?php
+// Ensure session is started
 
 // Detect language from query
 if (isset($_GET['lang'])) {
   $_SESSION['lang'] = $_GET['lang'];
 }
 $lang = $_SESSION['lang'] ?? 'en';
-
 
 // Translation array
 $translations = [
@@ -17,6 +17,9 @@ $translations = [
     'contact' => 'Contact',
     'language' => 'Language',
     'book_now' => 'Book Now',
+    'facilities' => 'Facilities',
+    'foodcourt' => 'Food Court',
+    'menu' => 'Menu',
 
     // Hero
     'hero_line_1' => 'Your Capsule Partner',
@@ -54,11 +57,14 @@ $translations = [
     'contact' => 'Makipag-ugnayan',
     'language' => 'Wika',
     'book_now' => 'Magpareserba',
+    'facilities' => 'Pasilidad',
+    'foodcourt' => 'Kantina',
+    'menu' => 'Menu',
 
     // Hero
     'hero_line_1' => 'Ang Iyong Ka-Capsule',
     'hero_line_2' => 'para sa Ginhawa.',
-    'hero_sub' => 'Manatiling tuyo at chill sa Subic Bay Hostel & Dormitory — kung saan nagtatagpo ang capsule comfort at affordability.',
+    'hero_sub' => 'Ang kauna-unahang Japanese capsule hotel sa Subic Bay!',
 
     // About
     'about_title' => 'Ginhawa at Abot-Kayang Presyo',
@@ -91,11 +97,14 @@ $translations = [
     'contact' => 'お問い合わせ',
     'language' => '言語',
     'book_now' => '今すぐ予約',
+    'facilities' => '施設',
+    'foodcourt' => 'フードコート',
+    'menu' => 'メニュー',
 
     // Hero
     'hero_line_1' => 'あなたのカプセルパートナー',
     'hero_line_2' => '快適さのために。',
-    'hero_sub' => '雨の日も安心！快適さと手頃さを兼ね備えたSubic Bay Hostel & Dormitoryへ。',
+    'hero_sub' => 'スービック湾初の日本式カプセルホテル！',
 
     // About
     'about_title' => '快適さと手頃な価格の融合',
@@ -128,11 +137,14 @@ $translations = [
     'contact' => '联系我们',
     'language' => '语言',
     'book_now' => '立即预订',
+    'facilities' => '设施',
+    'foodcourt' => '美食广场',
+    'menu' => '菜单',
 
     // Hero
     'hero_line_1' => '您的胶囊伙伴',
     'hero_line_2' => '为舒适而生。',
-    'hero_sub' => '在Subic Bay Hostel & Dormitory放松身心，享受经济实惠的胶囊舒适体验。',
+    'hero_sub' => '苏比克湾首家日式胶囊旅馆！',
 
     // About
     'about_title' => '舒适与实惠兼具',
@@ -158,5 +170,5 @@ $translations = [
   ]
 ];
 
-
+// Set selected language
 $text = $translations[$lang] ?? $translations['en'];
