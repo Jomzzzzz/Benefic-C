@@ -36,30 +36,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = "Full name can only contain letters, spaces, hyphens, apostrophes, and periods.";
     }
 
-   // Email validation
-if (!$email) {
-    $errors[] = "Email is required.";
-} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors[] = "Invalid email format.";
-} else {
-    $email_domain = strtolower(substr(strrchr($email, "@"), 1));
-    if ($email_domain !== 'gmail.com') {
-        $errors[] = "Only valid Gmail addresses are accepted.";
+    // Email validation
+    if (!$email) {
+        $errors[] = "Email is required.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Invalid email format.";
     } else {
-        // Check for existing booking (not checked out)
-        $stmt = $conn->prepare("SELECT id FROM bookings WHERE email = ? AND status != 'checked_out'");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            $errors[] = "This Gmail already has an active reservation.";
+        $email_domain = strtolower(substr(strrchr($email, "@"), 1));
+        if ($email_domain !== 'gmail.com') {
+            $errors[] = "Only valid Gmail addresses are accepted.";
+        } else {
+            $stmt = $conn->prepare("SELECT id FROM bookings WHERE email = ? AND status != 'checked_out'");
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                $errors[] = "This Gmail already has an active reservation.";
+            }
+            $stmt->close();
         }
-
-        $stmt->close();
     }
-}
-
 
     // Phone validation
     if (!$phone) {
@@ -215,15 +211,15 @@ if (!$email) {
       </div>
 
       <div class="relative">
-        <input type="number" name="total_guests" value="<?= htmlspecialchars($total_guests) ?>"
-               min="1"
-               class="peer w-full border-b-2 border-gray-400 py-4 placeholder-transparent focus:outline-none focus:border-black"
-               placeholder="Total Guests" required />
-        <label class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all 
-                     peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-3.5">
-          Total Guests
-        </label>
-      </div>
+    <input type="number" name="total_guests"
+           class="peer w-full border-b-2 border-gray-400 py-4 placeholder-transparent focus:outline-none focus:border-black"
+           placeholder="Total Guests" />
+    <label class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all 
+                 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-3.5">
+      Total Guests
+    </label>
+</div>
+
 
       <div class="space-y-6">
         <h3 class="text-xl font-semibold mb-4">Capsule Type</h3>
@@ -279,7 +275,8 @@ if (!$email) {
     </form>
 
     <!-- Modal -->
-    <div x-show="termsOpen"
+    <!-- Modal -->
+     <div x-show="termsOpen"
          x-transition:enter="transition ease-out duration-300"
          x-transition:enter-start="opacity-0 scale-95"
          x-transition:enter-end="opacity-100 scale-100"
@@ -304,13 +301,13 @@ if (!$email) {
             <ul class="list-disc list-inside space-y-1">
               <li>Discounts available for extended stays & groups.</li>
               <li>PHP 600/night Standard, PHP 900/night Deluxe Capsule.</li>
-              <li>280 Standard & 80 Deluxe capsules available.</li>
+              <li>280 Standard & 64 Deluxe capsules available.</li>
             </ul>
           </div>
           <div>
             <h3 class="text-black font-semibold mb-2">Stay Options</h3>
             <ul class="list-disc list-inside space-y-1">
-              <li>We accept daily, weekly, monthly, and yearly stays.</li>
+              <li>We accept daily, weekly, monthly, and long-term stays.</li>
               <li>Group discounts are also available.</li>
             </ul>
           </div>
@@ -318,7 +315,14 @@ if (!$email) {
             <h3 class="text-black font-semibold mb-2">Reservation & Payments</h3>
             <ul class="list-disc list-inside space-y-1">
               <li>PHP 200 advance payment (refundable).</li>
-              <li>Pay on check-in: extra PHP 400 or PHP 700 respectively.</li>
+              <li>Remaining balance due upon check-in.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-black font-semibold mb-2">Cancellation Policy</h3>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Free cancellation allowed up to 24 hours before check-in.</li>
+              <li>Late cancellations or no-shows may result in forfeiture of the PHP 200 advance payment.</li>
             </ul>
           </div>
           <div>
