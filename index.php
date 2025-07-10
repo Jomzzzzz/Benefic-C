@@ -16,7 +16,7 @@
 
 
 <!-- Hero Section -->
-<section class="relative w-full h-screen min-h-[600px] overflow-hidden bg-center bg-cover">
+<section class="relative w-full h-screen overflow-hidden bg-center bg-cover">
 
   <!-- Background Video -->
   <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
@@ -28,21 +28,20 @@
   <div class="absolute inset-0 bg-black/40 z-10"></div>
 
   <!-- Foreground Content -->
-  <div class="relative z-20 flex flex-col items-center justify-center text-center text-white px-4 sm:px-6 md:px-8 h-full max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl mx-auto" data-aos="fade-up">
-    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight drop-shadow-sm">
+  <div class="relative z-20 flex flex-col items-center justify-center text-center text-white px-4 md:px-6 h-full max-w-3xl mx-auto" data-aos="fade-up">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight drop-shadow-sm">
       <?= $text['hero_line_1'] ?><br>
       for <span class="underline decoration-[#F94144]">Comfort</span>.
     </h1>
-    <p class="mt-4 text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 leading-relaxed max-w-xl mx-auto">
+    <p class="mt-4 text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed max-w-xl">
       <?= $text['hero_sub'] ?>
     </p>
-    <a href="book.php" class="mt-8 inline-block bg-[#F94144] hover:bg-[#D8322E] text-white px-5 py-2.5 sm:px-6 sm:py-3 rounded-full font-medium shadow-md transition duration-300 hover:scale-105">
+    <a href="book.php" class="mt-6 inline-block bg-[#F94144] hover:bg-[#D8322E] text-white px-6 py-1 rounded-full font-semibold shadow-lg transition duration-300 hover:scale-105">
       <?= $text['book_now'] ?>
     </a>
   </div>
 
 </section>
-
 
 <!-- Explore and Experience -->
 <section class="py-20 bg-[#FFFCFB] text-black">
@@ -409,26 +408,11 @@
     </div>
   </div>
 </section>
-
-<!-- CTA -->
-<section class="py-20 bg-[#FFFCFB] text-black text-center">
-  <div class="max-w-4xl mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4"><?= $text['cta_title'] ?></h2>
-    <p class="mb-4 text-lg">📞 0999-996-6852 &nbsp;&nbsp; | &nbsp;&nbsp; 0915-535-9844</p>
-    <div class="flex justify-center gap-6 text-2xl my-4">
-      <a href="https://www.facebook.com/subicbay.hostelanddormitory.33" class="hover:text-red hover:scale-125 transition" target="_blank"><i class="fi fi-brands-facebook"></i></a>
-      <a href="https://www.tiktok.com/@subicbayhostel" class="hover:text-red hover:scale-125 transition" target="_blank"><i class="fi fi-brands-tik-tok"></i></a>
-      <a href="https://www.instagram.com/subicbayhostelanddormitory/" class="hover:text-red hover:scale-125 transition" target="_blank"><i class="fi fi-brands-instagram"></i></a>
-    </div>
-    <p class="mb-6 text-base"><?= $text['cta_desc'] ?></p>
-    <a href="book.php" class="inline-block text-white bg-[black] hover:bg-[black] hover:text-white px-4 py-2 rounded-full font-semibold transition-transform hover:scale-125">
-      <?= $text['book_now'] ?>
-    </a>
-  </div>
-</section>
+<?php include('includes/cta.php'); ?>
 
 <!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>AOS.init({ duration: 900, once: true });</script>
 <script src="https://unpkg.com/alpinejs" defer></script>
 <?php include('includes/footer.php'); ?>
+
