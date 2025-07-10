@@ -156,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          }">
 
   <div class="w-full max-w-3xl bg-white shadow-xl rounded-2xl p-8 sm:p-12">
-    <h1 class="text-4xl font-bold mb-8 text-center">Room Reservation</h1>
+    <h1 class="text-4xl mb-8 text-center">Room Reservation</h1>
 
     <?php if ($message): ?>
       <div class="<?= $messageType === 'error' ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800' ?> p-4 rounded mb-6 text-center">
@@ -274,7 +274,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </button>
     </form>
 
-    <!-- Modal -->
+
     <!-- Modal -->
      <div x-show="termsOpen"
          x-transition:enter="transition ease-out duration-300"
@@ -291,7 +291,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           ✕
         </button>
         <div class="bg-black text-white py-5 px-6 rounded-t-2xl">
-          <h2 class="text-xl font-bold uppercase tracking-wide text-center">Terms & Conditions</h2>
+          <h2 class="text-md uppercase tracking-wide text-center">Terms & Conditions</h2>
         </div>
         <div class="px-6 py-6 overflow-y-auto max-h-[60vh] text-gray-800 space-y-5 text-sm leading-relaxed"
              @scroll="checkScroll">
@@ -315,7 +315,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h3 class="text-black font-semibold mb-2">Reservation & Payments</h3>
             <ul class="list-disc list-inside space-y-1">
               <li>PHP 200 advance payment (refundable).</li>
-              <li>Remaining balance due upon check-in.</li>
+              <li>Payment will be collected upon arrival at the hotel.</li>
             </ul>
           </div>
           <div>
@@ -340,7 +340,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </div>
           <button :disabled="!scrolledToEnd"
                   @click="finish()"
-                  class="w-full py-3 rounded-lg font-semibold transition
+                  class="w-full py-3 rounded-lg transition
                          bg-black text-white hover:bg-gray-800
                          disabled:bg-gray-300 disabled:cursor-not-allowed">
             I Understand & Agree
