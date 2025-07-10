@@ -57,6 +57,7 @@
             >
             <p class="mt-3 text-sm text-gray-600 font-medium" x-text="room.title"></p>
             <button 
+              @click="modalOpen = true; activeRoom = room"
               class="cursor-pointer rounded-md bg-[#0F0F0F] px-3 py-1 text-sm text-white shadow-lg shadow-neutral-500/20 transition active:scale-[.95]"
             >
               BOOK NOW!
@@ -146,7 +147,7 @@
     @click="lightboxOpen = false"
     style="display: none;"
   >
-    <img :src="lightboxImage" alt="Room" class="max-h-[70vh] max-w-[70vw] rounded-lg shadow-lg">
+    <img :src="lightboxImage" alt="Room" class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-lg">
   </div>
 </div>
 
@@ -215,7 +216,7 @@
   <div x-show="lightboxOpen" x-transition @keydown.escape.window="lightboxOpen = false"
        class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 px-4"
        x-cloak @click.self="lightboxOpen = false">
-    <img :src="lightboxImage" class="max-h-[70vh] rounded-xl shadow-2xl" alt="Enlarged Room">
+    <img :src="lightboxImage" class="max-h-[90vh] rounded-xl shadow-2xl" alt="Enlarged Room">
   </div>
 
   <!-- Shared More Info Modal -->
@@ -243,23 +244,7 @@
     </div>
   </div>
 </section>
-
-<!-- CTA -->
-<section class="py-20 bg-[#F5F5F5] text-black text-center">
-  <div class="max-w-4xl mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4"><?= $text['cta_title'] ?></h2>
-    <p class="mb-4 text-lg">📞 0999-996-6852 &nbsp;&nbsp; | &nbsp;&nbsp; 0915-535-9844</p>
-    <div class="flex justify-center gap-6 text-2xl my-4">
-      <a href="https://www.facebook.com/subicbay.hostelanddormitory.33" class="hover:text-red hover:scale-125 transition" target="_blank"><i class="fi fi-brands-facebook"></i></a>
-      <a href="https://www.tiktok.com/@subicbayhostel" class="hover:text-red hover:scale-125 transition" target="_blank"><i class="fi fi-brands-tik-tok"></i></a>
-      <a href="https://www.instagram.com/subicbayhostelanddormitory/" class="hover:text-red hover:scale-125 transition" target="_blank"><i class="fi fi-brands-instagram"></i></a>
-    </div>
-    <p class="mb-6 text-base"><?= $text['cta_desc'] ?></p>
-    <a href="book.php" class="inline-block text-white bg-[black] hover:bg-[black] hover:text-white px-4 py-2 rounded-full font-semibold transition-transform hover:scale-125">
-      <?= $text['book_now'] ?>
-    </a>
-  </div>
-</section>
+<?php include('includes/cta.php'); ?>
 
 <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
