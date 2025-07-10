@@ -369,28 +369,7 @@
     </div>
   </div>
 </section>
-
-<!-- Call to Action -->
-<section class="py-16 bg-[#FFFCFB] text-black text-center" data-aos="fade-up">
-  <div class="max-w-xl mx-auto px-4">
-    <h3 class="text-2xl md:text-3xl font-semibold mb-4">Ready to Book?</h3>
-    <p class="mb-4">📞 0999-996-6852 &nbsp;|&nbsp; 0915-535-9844</p>
-     <a href="book.php" class="inline-block text-white bg-[black] hover:bg-[black] hover:text-white px-4 py-2 rounded-full font-semibold transition-transform hover:scale-125">
-      <?= $text['book_now'] ?>
-    </a>
-    <div class="flex justify-center gap-6 text-2xl mt-8">
-      <a href="https://www.facebook.com/subicbay.hostelanddormitory.33" target="_blank" class="hover:scale-125 transition-transform">
-        <i class="fi fi-brands-facebook"></i>
-      </a>
-      <a href="https://www.tiktok.com/@subicbayhostel" target="_blank" class=" hover:scale-125 transition-transform">
-        <i class="fi fi-brands-tik-tok"></i>
-      </a>
-      <a href="https://www.instagram.com/subicbayhostelanddormitory/" target="_blank" class=" hover:scale-125 transition-transform">
-        <i class="fi fi-brands-instagram"></i>
-      </a>
-    </div>
-  </div>
-</section>
+<?php include('includes/cta.php'); ?>
 
 <!-- AOS Init -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
