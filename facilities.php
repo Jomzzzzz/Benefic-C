@@ -21,7 +21,7 @@
 <main class="space-y-32">
 
   <!-- FACILITIES Hero -->
-  <section class="relative py-32 text-center bg-cover bg-center lightbox-bg"
+  <section class="relative py-40 text-center bg-cover bg-center lightbox-bg"
            style="background-image:url('assets/images/facilities/lobby1.jpg');" data-aos="fade-down">
     <div class="absolute inset-0 bg-black/30"></div>
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-white">
@@ -136,21 +136,9 @@
 
   </section>
 
-  <!-- Call-to-Action Footer -->
-  <section class="py-20 bg-[#EEE9E6] text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl font-bold mb-4">Ready for Your Stay?</h2>
-      <p class="text-lg mb-6">📞 0999-996-6852 | 0915-535-9844</p>
-      <div class="flex justify-center gap-6 text-2xl mb-6">
-        <a href="https://www.facebook.com/subicbay.hostelanddormitory.33" aria-label="Facebook" class="hover:text-[#DF5219]"><i class="fi fi-brands-facebook"></i></a>
-        <a href="https://www.tiktok.com/@subicbayhostel" aria-label="TikTok" class="hover:text-[#DF5219]"><i class="fi fi-brands-tik-tok"></i></a>
-        <a href="https://www.instagram.com/subicbayhostelanddormitory/" aria-label="Instagram" class="hover:text-[#DF5219]"><i class="fi fi-brands-instagram"></i></a>
-      </div>
-      <a href="book.php" class="inline-block bg-black text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition">Book Now</a>
-    </div>
-  </section>
-
 </main>
+
+<?php include('includes/cta.php'); ?>
 
 <script>
   AOS.init({
