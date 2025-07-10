@@ -26,6 +26,7 @@
 
 <body class="bg-white text-gray-800">
 
+<!-- Header -->
 <header 
   x-data="{ scrolled: false, open: false, activeLink: window.location.pathname }"
   @scroll.window="scrolled = window.scrollY > 10"
@@ -37,21 +38,12 @@
     <a href="index.php" 
        class="flex items-center gap-2 transition-transform duration-300"
        :class="scrolled ? 'scale-90' : 'scale-100'">
-      <img src="assets/images/sbhd-logo.png" alt="Subic Bay Hostel & Dormitory Logo" class="h-10 sm:h-12 w-auto">
+      <img src="assets/images/sbhd-logo.png" alt="Logo" class="h-10 sm:h-12 w-auto">
     </a>
 
     <!-- Desktop Nav -->
     <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center text-base font-medium">
-      <?php
-        $links = [
-          'index.php' => $text['home'],
-          'about.php' => $text['about'],
-          'rooms.php' => $text['rooms'],
-          'book.php' => $text['book'],
-          'contact.php' => $text['contact']
-        ];
-        foreach ($links as $file => $label):
-      ?>
+      <?php foreach ($links as $file => $label): ?>
         <a href="<?= $file ?>"
            :class="{ 'text-[#F94144] border-b-2 border-[#F94144]': activeLink.includes('<?= pathinfo($file, PATHINFO_FILENAME); ?>') }"
            class="pb-0 hover:text-[#F94144] transition">
@@ -75,7 +67,7 @@
     <!-- Mobile Menu Button -->
     <button @click="open = !open"
             class="md:hidden bg-[#F94144] text-white px-4 py-2 rounded-lg text-sm flex items-center gap-1 focus:outline-none">
-      Menu
+      Menus
       <svg class="w-4 h-4" fill="none" viewBox="0 0 10 6">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
       </svg>
@@ -92,21 +84,21 @@
        x-transition:leave-end="-translate-y-4 opacity-0"
        @click.outside="open = false"
        class="md:hidden absolute top-full left-0 w-full bg-white shadow-lg z-40 rounded-b-lg">
-    <div class="flex flex-col px-6 py-4 space-y-3">
+    <div class="flex flex-col px-5 py-5 space-y-4 text-sm w-full">
       <?php foreach ($links as $file => $label): ?>
         <a href="<?= $file ?>"
            :class="{ 'text-[#F94144]': activeLink.includes('<?= pathinfo($file, PATHINFO_FILENAME); ?>') }"
-           class="hover:text-[#F94144] transition"><?= $label; ?></a>
+           class="hover:text-[#F94144] transition w-full"><?= $label; ?></a>
       <?php endforeach; ?>
       <a href="facilities.php"
          :class="{ 'text-[#F94144]': activeLink.includes('facilities') }"
-         class="hover:text-[#F94144] transition"><?= $text['facilities'] ?? 'Facilities'; ?></a>
+         class="hover:text-[#F94144] transition w-full"><?= $text['facilities'] ?? 'Facilities'; ?></a>
       <a href="hawker.php"
          :class="{ 'text-[#F94144]': activeLink.includes('food') }"
-         class="hover:text-[#F94144] transition"><?= $text['foodcourt'] ?? 'Food Court'; ?></a>
+         class="hover:text-[#F94144] transition w-full"><?= $text['foodcourt'] ?? 'Food Court'; ?></a>
 
       <!-- Language dropdown -->
-      <div x-data="{ openLang: false }" class="relative">
+      <div x-data="{ openLang: false }" class="relative w-full">
         <button @click="openLang = !openLang"
                 class="flex items-center justify-between w-full hover:text-[#F94144] transition">
           <span><?= $text['language']; ?></span>
@@ -115,7 +107,7 @@
           </svg>
         </button>
         <div x-show="openLang" x-transition
-             class="mt-2 bg-white border border-gray-200 shadow-xl rounded-md absolute left-0 w-40 text-sm z-50">
+             class="mt-2 bg-white border border-gray-200 shadow-xl rounded-md absolute left-0 w-full text-sm z-50">
           <a href="?lang=en" data-lang="en" class="block px-3 py-2 hover:bg-gray-100">🇬🇧 English</a>
           <a href="?lang=tl" data-lang="tl" class="block px-3 py-2 hover:bg-gray-100">🇵🇭 Tagalog</a>
           <a href="?lang=ja" data-lang="ja" class="block px-3 py-2 hover:bg-gray-100">🇯🇵 Japanese</a>
@@ -125,6 +117,7 @@
     </div>
   </div>
 </header>
+
 
 <!-- Language Persistence -->
 <script>
