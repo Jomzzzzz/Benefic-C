@@ -4,6 +4,7 @@
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css">
 
+
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
@@ -16,35 +17,46 @@
 
 
 <!-- Hero Section -->
-<section class="relative w-full h-screen overflow-hidden bg-center bg-cover">
+<section class="w-full bg-[#FFFCFB]">
+  <div class="flex flex-col-reverse sm:flex-row md:flex-row lg:flex-row xl:flex-row 2xl:flex-row items-center justify-between max-w-7xl mx-auto px-4 sm:px-2 md:px-2 lg:px-2 xl:px-2 2xl:px-2 py-24 gap-10 sm:py-48 md:py-48 lg:py-48 xl:py-48 2xl:py-48">
 
-  <!-- Background Video -->
-  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
-    <source src="assets/videos/bg-index.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+    <!-- Left Content -->
+    <div class="flex-1 text-center sm:text-left md:text-left lg:text-left xl:text-left 2xl:text-left space-y-6" data-aos="fade-right">
+      <h1 class="text-4xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-6xl 2xl:text-6xl leading-tight tracking-tight text-gray-900 font-serif drop-shadow-sm">
+        <?= $text['hero_line_1'] ?><br>
+        for <span class="relative inline-block">
+          <span class="bg-gradient-to-r from-[#F94144] to-[#D8322E] text-transparent bg-clip-text underline decoration-[#F94144] decoration-4 underline-offset-4">Comfort</span>
+        </span>.
+      </h1>
 
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black/40 z-10"></div>
+      <p class="text-base sm:text-lg md:text-lg lg:text-lg xl:text-lg 2xl:text-lg text-gray-600 max-w-xl mx-auto sm:mx-0 md:mx-0 lg:mx-0 xl:mx-0 2xl:mx-0 leading-relaxed font-light">
+        <?= $text['hero_sub'] ?>
+      </p>
 
-  <!-- Foreground Content -->
-  <div class="relative z-20 flex flex-col items-center justify-center text-center text-white px-4 md:px-6 h-full max-w-3xl mx-auto" data-aos="fade-up">
-    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight drop-shadow-sm">
-      <?= $text['hero_line_1'] ?><br>
-      for <span class="underline decoration-[#F94144]">Comfort</span>.
-    </h1>
-    <p class="mt-4 text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed max-w-xl">
-      <?= $text['hero_sub'] ?>
-    </p>
-    <a href="book.php" class="mt-6 inline-block bg-[#F94144] hover:bg-[#D8322E] text-white px-6 py-1 rounded-full font-semibold shadow-lg transition duration-300 hover:scale-105">
-      <?= $text['book_now'] ?>
-    </a>
+      <a href="book.php"
+        class="inline-block bg-[#F94144] hover:bg-[#D8322E] text-white px-6 py-2 rounded-full font-semibold shadow-md transition-all duration-300 hover:scale-105">
+        <?= $text['book_now'] ?>
+      </a>
+    </div>
+
+    <!-- Right Content: Video -->
+    <div class="flex-1 w-full max-w-lg" data-aos="fade-left">
+      <div class="aspect-square overflow-hidden shadow-lg relative group bg-black flex items-center justify-center">
+        <video autoplay muted loop playsinline 
+          class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-100">
+          <source src="assets/videos/bg-index.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition duration-300 rounded-2xl pointer-events-none"></div>
+      </div>
+    </div>
+
   </div>
-
 </section>
 
+
 <!-- Explore and Experience -->
-<section class="py-20 bg-[#FFFCFB] text-black">
+<section class="py-20 bg-[#F5F5F5] text-black">
   <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
 
 <!-- Title and Subtitle -->
@@ -154,7 +166,7 @@
 <!-- AOS CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 
-<section class="py-24 h-auto md:h-[400px] text-[black] bg-[#F5F5F5]">
+<section class="py-24 h-auto md:h-[400px] text-[black] bg-[#FFFCFB]">
   <div class="max-w-6xl mx-auto px-6 text-center">
     <h2 class="text-4xl mb-12" data-aos="fade-up">What Our Guests Say</h2>
 
@@ -279,7 +291,7 @@
 </script>
 
 <!-- Our Clients -->
-<section class="py-24 bg-[#FFFCFB] text-black">
+<section class="py-24 bg-[#F5F5F5] text-black">
   <div class="max-w-7xl mx-auto px-6">
     <h3 class="text-4xl mb-12 text-center">Our <span class="underline decoration-[#F94144]">Clients</span></h3>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
@@ -415,4 +427,3 @@
 <script>AOS.init({ duration: 900, once: true });</script>
 <script src="https://unpkg.com/alpinejs" defer></script>
 <?php include('includes/footer.php'); ?>
-
